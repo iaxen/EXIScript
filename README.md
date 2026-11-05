@@ -1,3 +1,9 @@
+## Loadstring
+
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/iaxen/EXIS/main/EXIScript.lua"))()
+```
+
 # EXIScript
 
 <details>
