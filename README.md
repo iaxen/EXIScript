@@ -1,6 +1,7 @@
 # EXIScript
 
-## Fuzzotopia: Cozy Hideaway
+<details>
+<summary><strong>Fuzzotopia: Cozy Hideaway</strong></summary>
 
 ### Farming
 - Auto Harvest, Plant and Water
@@ -76,3 +77,5 @@
 - Auto Reconnect
 - Auto Execute
 - Auto Leave When Someone Joins
+
+</details>
