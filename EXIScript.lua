@@ -4,6 +4,10 @@ local RS=game:GetService("ReplicatedStorage")
 local BASE="https://raw.githubusercontent.com/iaxen/EXIS_Games/main/"
 local routes={
     {
+        name="ZombieRushSurvival",file="Games/ZombieRushSurvival.lua",
+        placeIds={[82457571485380]=true,[87413622775071]=true},
+    },
+    {
         name="MrbeastIslandEscape",file="Games/MrbeastIslandEscape.lua",
         placeIds={[108645230905176]=true},
         detect=function()

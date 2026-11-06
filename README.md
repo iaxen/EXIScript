@@ -227,3 +227,66 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/iaxen/EXIScript/main/
 > </details>
 
 </details>
+
+---
+
+<details>
+<summary><strong>🎮 Zombie Rush Survival — Initial Test Release</strong></summary>
+
+> <details>
+> <summary><strong>Classes · Lobby</strong></summary>
+>
+> - Expandable class list
+> - Auto buy selected classes
+> - Auto upgrade selected classes' defenses
+> - Equip an owned class
+>
+> </details>
+
+> <details>
+> <summary><strong>Weapons</strong></summary>
+>
+> - Expandable weapon lists by tier
+> - Auto buy selected weapons and upgrade their individual levels
+> - Choose and apply each tier's weapon loadout
+>
+> </details>
+
+> <details>
+> <summary><strong>Match and Combat</strong></summary>
+>
+> - Detect equipped class and active map: Skyline or Crystal Cave
+> - Auto Skip toggle
+> - Auto health, gun-tier and melee upgrades
+> - Fly orbit, head aiming and native fire-input controls
+> - Boss-first targeting
+> - Adjustable orbit height, radius and movement speed
+>
+> </details>
+
+> <details>
+> <summary><strong>Defense and Area Selection</strong></summary>
+>
+> - Auto place the equipped class's selected structural defenses
+> - Select a map floor part or draw a connected dot boundary
+> - Save a separate placement area for each map
+> - Front barricades and interior turrets
+> - Reserve a support gap and place an available Healing Station between defenses
+> - Account for existing defenses, grid footprints, currency and placement rejections
+> - Adjustable owned-defense limit and cash reserve
+>
+> </details>
+
+> <details>
+> <summary><strong>Interface and Settings</strong></summary>
+>
+> - Compact blue-and-black EXIS interface
+> - Sidebar categories with expanding child sections
+> - Switch toggles, draggable square EXIS icon and resizable panel
+> - Separate saved configuration
+> - Mobile-button and native-mouse fire input options
+> - Copyable diagnostics
+>
+> </details>
+
+</details>
