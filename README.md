@@ -1,10 +1,29 @@
 # EXIScript
 
-## Loadstring
+## Launch
+
+Run this in your Roblox client's executor after joining a supported game:
 
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/iaxen/EXIScript/main/EXIScript.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/iaxen/EXIScript/main/EXIScript.lua?exis=" .. tostring(os.time())))()
 ```
+
+The query refreshes the launcher URL. The launcher also adds a build/time query when downloading the selected game file. Both repositories must contain the merged changes: this repository chooses the game, and [EXIS_Games](https://github.com/iaxen/EXIS_Games) contains its implementation.
+
+**Steal an Egg:** wait for the EXIS panel, choose your filters, click **Enable core automation**, then turn on **Master switch**. Master starts off each session; a visible panel with no movement is not a failed launch.
+
+### If execution stops
+
+The loader displays its build and stage: **Detecting game → Downloading → Compiling → Starting**. A failure stays visible with the actual error. The game then has its own native-module startup panel. Closing a status panel only dismisses the message.
+
+- **No status panel and no console message:** check that the command actually ran, that the environment supports `loadstring` and HTTP requests, and that you copied the current command above.
+- **Unsupported game:** copy the displayed PlaceId/GameId. Steal an Egg's known place is `107778070777162`; other places can also be detected through their native EggState/PlotState modules.
+- **Download failed:** the message includes the HTTP error or response. Check connectivity and repository access; an empty response never counts as execution.
+- **Compile failed:** copy the complete compiler error and build string.
+- **Starting / native module error:** copy the exact module path and error from the startup panel. The script waits for late modules, but missing or changed native APIs still need investigation.
+- **Panel opens but a task fails:** use **Tools → Copy diagnostics** or **Save diagnostics file**. Include the task, recent log and any unconfirmed/pending request. Do not repeatedly re-execute while a mutation is pending.
+
+A mocked startup and compiler pass do not establish compatibility with every live executor. If it still fails, the displayed error is necessary to distinguish HTTP, compilation, native-module loading and game-specific rejection.
 
 ## Games
 
@@ -135,9 +154,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/iaxen/EXIScript/main/
 > <details>
 > <summary><strong>Survival</strong></summary>
 >
-> - Auto eat selected food
+> - Cook collected food and eat cooked food only
 > - Adjustable health and hunger thresholds
-> - Nearby NPC defence using an equipped melee tool
+> - Native melee/ranged attacks, exact quest material hunts, counterattacks and evasion
 >
 > </details>
 
@@ -258,9 +277,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/iaxen/EXIScript/main/
 > - Detect equipped class and active map: Skyline or Crystal Cave
 > - Auto Skip toggle
 > - Auto health, gun-tier and melee upgrades
-> - Fly orbit, head aiming and native fire-input controls
+> - Grounded turret-area evasion, head aiming and native fire-input controls
 > - Boss-first targeting
-> - Adjustable orbit height, radius and movement speed
+> - Adjustable movement and threat-distance controls
 >
 > </details>
 
@@ -288,5 +307,29 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/iaxen/EXIScript/main/
 > - Copyable diagnostics
 >
 > </details>
+
+</details>
+
+
+---
+
+<details>
+<summary><strong>🎮 Steal an Egg — Initial Native Automation</strong></summary>
+
+- Highest-rarity-first field egg selection; distance breaks ties
+- Biome, rarity and pet-category exclusions
+- Teleport approach, native pickup timing and walking/pathfinding return to your own base
+- Carry-loss and ownership-receipt checks
+- Plant inventory eggs and trigger ready eggs' native hatch presentation
+- Native equip-best pets and idle treadmill training
+- Optional affordable cash base/treadmill upgrades and discovered index rewards
+- Optional matching, unequipped, nonfavorite duplicate fusion; consumes pets and cash
+- Light vs Darkness rings, Sammy pickups and field event eggs
+- **Performance:** hide other players' pen visuals, native hide-other/self-pet preferences, reduced details/shadows/textures/effects and disabled treadmill videos
+- **EXIS Tools:** live FPS/task/native-module diagnostics, copy/print/save logs, save/reload settings while paused, snapshot refresh, anti-idle, rejoin, optional teleport execution and connection-loss reconnect
+- Reversible visuals; collisions, prompts and native game state are retained
+- Settings and saved diagnostics under `EXIGames/StealAnEgg`
+
+Full race driving, obby routes, dimension boss fights and other multi-stage events are not implemented. No code redemption, paid purchases, automatic selling or rebirth is added. Live gameplay and performance gains remain unverified. See the [native audit](https://github.com/iaxen/EXIS_Games/blob/main/Docs/StealAnEgg_Native_Audit.md) for exact coverage and limitations.
 
 </details>
