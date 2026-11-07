@@ -4,6 +4,17 @@ local RS=game:GetService("ReplicatedStorage")
 local BASE="https://raw.githubusercontent.com/iaxen/EXIS_Games/main/"
 local routes={
     {
+        name="Steal an Egg",file="Games/StealAnEgg.lua",
+        placeIds={[107778070777162]=true},
+        detect=function()
+            local client=RS:FindFirstChild("Client")
+            local shared=RS:FindFirstChild("Shared")
+            return client and client:FindFirstChild("EggState")~=nil
+                and client:FindFirstChild("PlotState")~=nil
+                and shared and shared:FindFirstChild("Remotes")~=nil
+        end,
+    },
+    {
         name="ZombieRushSurvival",file="Games/ZombieRushSurvival.lua",
         placeIds={[82457571485380]=true,[87413622775071]=true},
     },
